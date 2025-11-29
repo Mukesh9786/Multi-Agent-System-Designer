@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent System Designer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Multi-Agent System Designer</h1>
+            <p>Convert business workflows into intelligent agent systems</p>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="input-section">
+                    <h2>Business Workflow Input</h2>
+                    <textarea id="workflowInput" placeholder="Describe your business workflow...&#10;&#10;Example: Customer Support System&#10;- Receive customer inquiry&#10;- Classify the issue&#10;- Route to appropriate department&#10;- Generate response&#10;- Follow up"></textarea>
+                    
+                    <div class="templates">
+                        <h3>Quick Templates</h3>
+                        <button class="template-btn" data-template="customer-support">Customer Support</button>
+                        <button class="template-btn" data-template="ecommerce">E-Commerce Order</button>
+                        <button class="template-btn" data-template="content">Content Creation</button>
+                        <button class="template-btn" data-template="hr">HR Recruitment</button>
+                    </div>
+
+                    <button id="generateBtn" class="primary-btn">Generate Agent System</button>
+                </div>
+
+                <div class="config-section">
+                    <h3>System Configuration</h3>
+                    <div class="config-options">
+                        <label>
+                            <input type="checkbox" id="enableMemory" checked>
+                            Enable Shared Memory
+                        </label>
+                        <label>
+                            <input type="checkbox" id="enableMetrics" checked>
+                            Track Performance Metrics
+                        </label>
+                        <label>
+                            <input type="checkbox" id="enableLogging" checked>
+                            Enable Detailed Logging
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="visualization-header">
+                    <h2>Agent Workflow Visualization</h2>
+                    <div class="controls">
+                        <button id="zoomIn">🔍+</button>
+                        <button id="zoomOut">🔍-</button>
+                        <button id="resetView">⟲</button>
+                        <button id="exportJson">📥 Export JSON</button>
+                        <button id="runSimulation">▶️ Run Simulation</button>
+                    </div>
+                </div>
+                <div id="canvas" class="canvas"></div>
+                
+                <div class="agent-details" id="agentDetails">
+                    <h3>Agent Details</h3>
+                    <div id="detailsContent">Select an agent to view details</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-panel">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="json">JSON Output</button>
+                <button class="tab-btn" data-tab="logs">Execution Logs</button>
+                <button class="tab-btn" data-tab="metrics">Metrics</button>
+            </div>
+            <div class="tab-content">
+                <div id="jsonTab" class="tab-pane active">
+                    <pre id="jsonOutput">Generate a workflow to see the JSON output...</pre>
+                </div>
+                <div id="logsTab" class="tab-pane">
+                    <div id="logsOutput" class="logs-container">No logs yet. Run a simulation to see execution logs.</div>
+                </div>
+                <div id="metricsTab" class="tab-pane">
+                    <div id="metricsOutput" class="metrics-container">
+                        <div class="metric-card">
+                            <h4>Total Agents</h4>
+                            <div class="metric-value" id="totalAgents">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Communication Paths</h4>
+                            <div class="metric-value" id="totalPaths">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Avg Response Time</h4>
+                            <div class="metric-value" id="avgResponseTime">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Success Rate</h4>
+                            <div class="metric-value" id="successRate">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="agent-system.js"></script>
+    <script src="visualization.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
